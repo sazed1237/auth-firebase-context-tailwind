@@ -7,14 +7,14 @@ const Header = () => {
     const { user, logOut } = useContext(AuthContext)
 
 
-    const handleLogOut = () =>{
+    const handleLogOut = () => {
         logOut()
-        .then( () =>{
+            .then(() => {
 
-        })
-        .catch(error =>{
-            console.log(error.message)
-        })
+            })
+            .catch(error => {
+                console.log(error.message)
+            })
     }
 
     return (
@@ -23,6 +23,10 @@ const Header = () => {
             <div className="navbar bg-primary text-primary-content">
                 <button className="btn btn-ghost text-xl">Auth Master</button>
                 <Link className="btn btn-ghost text-xl" to="/">Home</Link>
+                <Link className="btn btn-ghost text-xl" to="/orders">Orders</Link>
+                {user &&
+                    <Link className="btn btn-ghost text-xl" to="/profile">Profile</Link>
+                }
                 <Link className="btn btn-ghost text-xl" to="/login">Login</Link>
                 <Link className="btn btn-ghost text-xl" to="/register">Register</Link>
 
