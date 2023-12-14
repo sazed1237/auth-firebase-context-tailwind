@@ -6,7 +6,7 @@ import { Result } from 'postcss';
 const Login = () => {
 
     const { singInUser } = useContext(AuthContext)
-    console.log(singInUser)
+    // console.log(singInUser)
 
     const handleLogin = (event) => {
 
@@ -20,6 +20,7 @@ const Login = () => {
             .then(result => {
                 const loggedUser = result.user;
                 console.log(loggedUser)
+                form.reset()
             })
             .catch(error => {
                 console.log(error.message)
