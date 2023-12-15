@@ -5,11 +5,10 @@ import { Result } from 'postcss';
 
 const Login = () => {
 
-    const { singInUser } = useContext(AuthContext)
+    const { singInUser, singInWithGoogle, singInWithGithub } = useContext(AuthContext)
     // console.log(singInUser)
 
     const handleLogin = (event) => {
-
         event.preventDefault();
         const form = event.target;
         const email = form.email.value;
@@ -24,7 +23,16 @@ const Login = () => {
             })
             .catch(error => {
                 console.log(error.message)
-            })
+            })       
+    }
+
+    // sing in with social links
+    const handleGoogleSingIn = () =>{
+        singInWithGoogle()
+    }
+
+    const handleGithubSingIn = () =>{
+        singInWithGithub()
     }
 
 
@@ -54,6 +62,12 @@ const Login = () => {
                         </div>
                         <div className="form-control mt-6">
                             <button className="btn btn-primary">Login</button>
+                        </div>
+                        <div className="form-control mt-2">
+                            <button onClick={handleGoogleSingIn} className="btn btn-primary">Sing in with Google</button>
+                        </div>
+                        <div className="form-control mt-2">
+                            <button onClick={handleGithubSingIn} className="btn btn-primary">Sing in with Github</button>
                         </div>
                     </form>
                     <p className=' text-sm text-center'>NEW TO AUTH MASTER ?
